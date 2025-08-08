@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AngelaCoronelAraus</title> <!-- El nombre que tendra el URL -->
+
+  <!-- Font Awesome -->
+  <!-- Libreria de Iconos Gratuitos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="img/maleta.png" />
+
+  <!-- Aqui voy a escribir mucho texto, asi que preparate para leer -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: auto;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: white;
+      border-bottom: 1px solid #f0f0f0;
+      z-index: 999;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #2c2c2c;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: 600;
+      margin-left: 40px;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #6a00ff;
+    }
+
+    section {
+      padding: 100px 40px;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #home { background: #f8f8f8; }
+    #about { background: #ffffff; }
+    #projects { background: #f0f0f0; }
+    #contact { background: #fafafa; }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 700px;
+    }
+
+    .social-sidebar {
+      position: fixed;
+      top: 40%;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      padding: 10px 5px;
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 998;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .social-sidebar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      color: #333;
+      font-size: 20px;
+      text-decoration: none;
+      margin: 5px 0;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .social-sidebar a:hover {
+      color: #000;
+      border-color: #000;
+      background-color: #eaeaea;
+    }
+
+    /* --- DARK MODE --- */
+    body.dark-mode {
+      background-color: #121212;
+      color: #eeeeee;
+    }
+
+    body.dark-mode header {
+      background-color: #1e1e1e;
+      color: #fff;
+      border-bottom: 1px solid #333;
+    }
+
+    body.dark-mode nav a {
+      color: #eee;
+    }
+
+    body.dark-mode nav a:hover {
+      color: #a970ff;
+    }
+
+    body.dark-mode section {
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+
+    body.dark-mode .social-sidebar {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode .social-sidebar a {
+      color: #ccc;
+    }
+
+    body.dark-mode .social-sidebar a:hover {
+      color: #fff;
+      border-color: #fff;
+      background-color: #333;
+    }
+
+    /*Boton Modulo Home*/
+
+    .btn-projects {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #6a00ff;
+  color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-projects:hover {
+  background-color: #5900d4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Estilo en modo oscuro */
+body.dark-mode .btn-projects {
+  background-color: #fff;
+  color: #1e1e1e;
+}
+
+body.dark-mode .btn-projects:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+@media screen and (max-width: 1024px) {
+  section {
+    padding: 80px 30px;
+  }
+
+  header {
+    padding: 10px 30px;
+  }
+
+  .logo h1 {
+    font-size: 0.9rem;
+  }
+
+  nav a {
+    margin-left: 25px;
+    font-size: 0.9rem;
+  }
+
+  .btn-projects {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* Móviles y pantallas pequeñas */
+@media screen and (max-width: 768px) {
+
+  /* MENU RESPONSIVO */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Mostrar menú al activar */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Botón de menú oculto por defecto */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Redes sociales se van al bottom center */
+  .social-sidebar {
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
+
+  .social-sidebar a {
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Ajustes de texto */
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Home */
+
+#home {
+  height: 100vh; /* Ocupar toda la altura de la pantalla */
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  text-align: center;
+  padding: 0 20px; /* Para que en móviles no se pegue a los bordes */
+}
+
+.home-content {
+  max-width: 700px;
+}
+
+#home h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+#home p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Dark mode */
+body.dark-mode #home p {
+  color: #ccc;
+}
+
+
+/* About */
+
+#about {
+  padding: 80px 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+body.dark-mode #about {
+  background-color: #121212;
+  color: #ccc;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.underline {
+  width: 50px;
+  height: 4px;
+  background-color: #6b46c1;
+  margin: 10px auto 20px;
+  border-radius: 5px;
+}
+
+.about-header p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.about-left,
+.about-right {
+  flex: 1 1 400px;
+}
+
+.about-left h3,
+.about-right h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.about-left p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.btn-contact {
+  display: inline-block;
+  background-color: #6b46c1;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+  background-color: #4c2aaf;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills span {
+  background-color: #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.skills span:hover {
+  background-color: #ccc;
+}
+
+/* Dark Mode Skills */
+body.dark-mode .skills span {
+  background-color: #333;
+  color: #eee;
+}
+
+body.dark-mode .skills span:hover {
+  background-color: #444;
+}
+
+/* Certificados - TimeLine */
+
+.certificates-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.certificates-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.certificates-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.certificates-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  border-left: 4px solid #6a00ff;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 20px;
+}
+
+.timeline-year {
+  position: absolute;
+  left: -75px;
+  top: 0;
+  background-color: #6a00ff;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.timeline-content {
+  background-color: #f3f3f3;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.timeline-content h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Dark mode */
+body.dark-mode .timeline {
+  border-color: #bb86fc;
+}
+
+body.dark-mode .timeline-year {
+  background-color: #bb86fc;
+  color: #121212;
+}
+
+body.dark-mode .timeline-content {
+  background-color: #1e1e1e;
+  color: #ccc;
+}
+
+body.dark-mode .timeline-content p {
+  color: #aaa;
+}
+
+/* Solucion de Colores */
+
+/* Modo oscuro - Título principal del módulo Home */
+body.dark-mode #home h1 {
+  color: black; /* Color blanco o más claro para contraste */
+}
+
+body.dark-mode #home p {
+  color: black;
+}
+
+/* Modo oscuro - Nombre del usuario en el menú */
+body.dark-mode header .logo h1 {
+  color: #ffffff; /* También blanco para que destaque en fondo oscuro */
+}
+
+body.dark-mode .language-toggle i {
+  color: #ccc;
+}
+
+body.dark-mode .language-toggle:hover i {
+  color: #fff;
+}
+
+
+/* Fix */
+
+.language-toggle i {
+  font-size: 24px; /* Ajusta el tamaño del ícono */
+  color: #333; /* Color del ícono */
+}
+
+/* Estilo adicional si deseas que el ícono cambie al pasar el ratón */
+.language-toggle:hover i {
+  color: #6a00ff; /* Color cuando el ratón está sobre el ícono */
+}
+
+@media screen and (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.skills span {
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+
+.skills span:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+h1, h2, p, a {
+  transition: all 0.3s ease-in-out;
+}
+
+/* ===================== FOOTER ===================== */
+.site-footer {
+  background-color: #f5f5f5;
+  padding: 20px 40px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.site-footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-footer p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #333;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #6a00ff;
+}
+
+/* DARK MODE */
+body.dark-mode .site-footer {
+  background-color: #1e1e1e;
+  border-top: 1px solid #333;
+}
+
+body.dark-mode .site-footer p {
+  color: #ccc;
+}
+
+body.dark-mode .footer-links a {
+  color: #ccc;
+}
+
+body.dark-mode .footer-links a:hover {
+  color: #bb86fc;
+}
+
+/* RESPONSIVE FOOTER */
+@media screen and (max-width: 600px) {
+  .site-footer .footer-content {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer-links a {
+    font-size: 1.1rem;
+    margin: 0 8px;
+  }
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 80px 20px;
+  text-align: center; /* 🔥 esto centra todo el texto dentro */
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-section > p {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  font-size: 1.1em;
+  color: #555;
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.2);
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+.form-success {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Dark Mode Compatibility */
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #222;
+  color: #eee;
+  border-color: #555;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+  background-color: #333;
+  border-color: #0099ff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-grid {
+    flex-direction: column;
+  }
+}
+
+
+</style>
+</head>
+
+
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    nav.classList.toggle('active');
+  }
+</script>
+
+<!-- (1) Body : Es la estructura principal de nuestro sitio web, sin el body tendriamos una pagina en blanco -->
+
+
+<body>
+
+  <!-- Header -->
+  <!-- (2) Header : Nos ayudara a tener un menu y mostrar de manera mas presentable nuestro sitio web, no es necesario en algunos casos, pero para tener una mejor estructura lo tendremos -->
+  <!-- Header -->
+  <!-- Objetivos : Mensaje de error cuando no carge la imagen | Listo -->
+  <header>
+    <div class="logo">
+      <img src="img/pato.jpg" alt="Not found" />
+      <h1>Angela Coronel Araus</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="#home" data-i18n="hb1">Inicio</a>
+      <a href="#about" data-i18n="ab1">Sobre Mi</a>
+      <a href="#certificates" data-i18n="ac1">Certificaciones</a>
+      <a href="#contact" data-i18n="aco1">Contacto</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- (2) Div : Lo usaremos para un mini menu lateral que nos de acceso a las redes sociales y al cambio de color-->
+  <!-- Redes Sociales + Botón de Modo Oscuro -->
+  <div class="social-sidebar">
+    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/angiecily?igsh=MWozMjQyazBjdGk5bA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/AngelaCoronel-dot" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <!-- Botón de Traduccion -->
+    <a href="#" title="Traducción" class="language-toggle">
+      <i class="fas fa-language"></i>
+    </a>
+    <!-- Botón de modo oscuro -->
+    <a href="#" onclick="toggleDarkMode()" title="Modo oscuro 🌙">
+      <i class="fas fa-moon"></i>
+    </a>
+  </div>
+
+  <!-- Secciones -->
+<section id="home">
+  <div class="home-content">
+    <h1 data-i18n="ht1">Hola, Yo soy Angela Coronel</h1>
+    <p data-i18n="hp1">
+        Soy estudiante de Administración de Empresas, a punto de dar el siguiente paso hacia mi carrera profesional. 
+        Este es mi portafolio web, donde comparto mi crecimiento y proyectos.
+    </p>
+    <a href="#certificates" class="btn-projects" data-i18n="hbt1">Ver Certificados</a>
+  </div>
+</section>
+
+<!--Crear un Div Como separador | Pendiente -->
+
+<section id="about">
+  <div class="about-container">
+    <div class="about-header">
+      <h2>Sobre Mi</h2>
+      <div class="underline"></div>
+      <p class="text-about-me" data-i18n="amp1">
+        Aquí encontrarás más información sobre mí, mi experiencia<br />
+        <p>y las habilidades que me definen.</p>
+      </p>
+    </div>
+
+    <div class="about-content">
+      <!-- Left Column -->
+      <div class="about-left">
+        <h3>¡Conóceme!</h3>
+        
+        <p>
+          Soy estudiante de <strong>Administración de Empresas,</strong> comprometida con dar siempre lo mejor de mí. Me esfuerzo por alcanzar la excelencia académica y me defino como una persona respetuosa, amigable y sociable. En mi tiempo libre disfruto compartir con mi familia, cuidar a mis mascotas y expresarme a través de la música, el canto y el baile. Puedes consultar mis logros en la sección de <strong>Certificados.</strong>
+        </p>        
+        <p>
+          También me gusta compartir mis logros y aprendizajes a lo largo de mi camino académico y personal a través de mis <strong>Redes Sociales,</strong> como 
+          <a href="#" target="_blank"><strong style="color: #6b46c1;">Linkedin</strong></a> y 
+          <a href="#" target="_blank"><strong style="color: #6b46c1;">Instagram</strong></a> 
+        </p>
+           
+        <p>
+          Estoy abierta a <strong>Oportunidades Laborales</strong> donde pueda aportar, seguir aprendiendo y desarrollarme profesionalmente. Si consideras que mi perfil encaja con alguna vacante, <strong>no dudes en contactarme.</strong>
+        </p>
+        <a href="#contact" class="btn-contact">Contacto</a>
+        <a href="ruta/a/tu-cv.pdf" class="btn-contact" download>Descargar CV</a>
+      </div>
+
+      <!-- Right Column -->
+      <div class="about-right">
+        <h3>Mis Habilidades</h3>
+        <div class="skills">
+          <span draggable="true">Ingles Intermedio</span>
+          <span draggable="true">Trabajo en Equipo</span>
+          <span draggable="true">Buena Comunicacion</span>
+          <span draggable="true">Aprendizaje Rapido</span>
+          <span draggable="true">Conocimientos en Computacion</span>
+          <span draggable="true">Microsoft Word</span>
+          <span draggable="true">Microsoft Excel</span>
+          <span draggable="true">Canvas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificados -->
+
+<section id="certificates">
+  <div class="certificates-container">
+    <div class="certificates-header">
+      <h2>Certificados</h2>
+      <div class="underline"></div>
+      <p>
+        Aquí podrás encontrar mis certificados obtenidos en cursos, talleres y programas de formación que respaldan mis habilidades técnicas y profesionales.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h3>Certificado Trabajo de Campo mediante el NAE</h3>
+          <p>Certificado por Universidad UNIVALLE. Por la partipación y contribución durante el trabajo de campo realizado mediante el NAE para la empresa<strong> Raizant </strong></p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h3>Certificado Trabajo de Campo mediante el NAE</h3>
+          <p>Certificado por Universidad UNIVALLE. Por la participación y contribución durante el trabajo de campo realizado mediante el NAE para la empresa<strong> La Sierra </strong> </p>
+        </div>
+      </div>
+
+            <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h3>Certificado Trabajo de Campo mediante el NAE</h3>
+          <p>Certificado por Universidad UNIVALLE. Por la participación y contribución durante el trabajo de campo realizado mediante el NAE para el estudio y la efectivización de la comunicación interna de la <strong> Universidad Privada del Valle </strong> </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h3>Certificado Trabajo de Campo mediante el NAE</h3>
+          <p>Certificado por Universidad UNIVALLE. Por la participación y contribución durante el trabajo de campo realizado mediante el NAE para la empresa<strong> NeuroInvest </strong> </p>
+        </div>
+      </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <h3>Certificado Spelling Challenge</h3>
+          <p>Certificado por Universidad UNIVALLE. Por la participación y contribución durante el <strong>Spelling Challenge</strong> 01/2025</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <h3>Certificado Sociedad Científica de Administración de Empresas</h3>
+          <p>Certificado por Universidad UNIVALLE. Por su incorporación como <strong>secretario de deporte y cultura de la sociedad científica de administración de empresas</strong></p>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-section">
+  <h2>Contáctame</h2>
+  <p>¿Tienes un proyecto o una idea? Estoy lista para escucharte. ¡Envíame un mensaje y conectemos!</p>
+
+  <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="name"><span>👤</span> Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email"><span>📧</span> Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="Tu correo" required>
+      </div>
+    </div>
+
+    <div class="form-group full-width">
+      <label for="message"><span>💬</span> Mensaje</label>
+      <textarea id="message" name="message" placeholder="Tu mensaje..." rows="5" required></textarea>
+    </div>
+
+    <button type="submit">📨 Enviar mensaje</button>
+
+    <p id="form-success" class="form-success" style="display:none;">✅ ¡Gracias! Tu mensaje ha sido enviado.</p>
+  </form>
+</section>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2025 Angela Coronel Araus</p>
+    <div class="footer-links">
+      <a href="mailto:AngelaOmaraCoronelAraus@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/AngelaCoronel-dot" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Script -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+
+<script>
+  // Función para hacer scroll suave personalizado
+  function smoothScrollTo(targetId, duration = 800) {
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    const startY = window.pageYOffset;
+    const targetY = target.getBoundingClientRect().top + startY;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, startY, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    // Función de aceleración (easeInOut)
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  // Detecta TODOS los enlaces internos con href="#..."
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault(); // Previene el salto instantáneo
+        smoothScrollTo(targetId, 800); // Desplazamiento suave
+      }
+    });
+  });
+</script>
+
+<!-- Boton cambio de idioma -->
+
+<script>
+// Traducciones para cada idioma
+const translations = {
+   es: {
+     hb1 : 'Inicio',
+     ab1 : 'Sobre Mi',
+     ac1 : 'Certificaciones',
+     aco1: 'Contacto',
+     //
+     ht1:'Hola, Yo soy Angela Coronel',
+     hp1:'Soy estudiante de Administración de Empresas, a punto de dar el siguiente paso hacia mi carrera profesional. Este es mi portafolio web, donde comparto mi crecimiento y proyectos.',
+     hbt1:'Ver Certificados',
+     //
+     amt1: 'Sobre Mi',
+     amp1: 'Aquí encontrarás más información sobre mí, mi experiencia',
+     amp2: 'y las habilidades que me definen',
+     //
+   },
+   en: {
+     hb1 : 'Home',
+     ab1 : 'About Me',
+     ac1 : 'Certificates',
+     aco1: 'Contact',
+     //
+     ht1: 'Hi, I Am Angela Coronel',
+     hp1: 'I am a Business Administration student, about to take the next step in my professional career. This is my web portfolio, where I share my growth and projects.',
+     hbt1: 'Certificates',
+     //
+     amt1: 'About Me',
+     amp1: 'Here you will find more information about me, my experience',
+     amp2: 'and the skills that define me.'
+   }
+};
+
+let currentLang = 'es'; // Idioma actual
+
+const languageButton = document.querySelector('.language-toggle');
+
+function updateLanguage(lang) {
+   document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+         el.textContent = translations[lang][key];
+      }
+   });
+}
+
+// Cambiar el idioma al hacer clic en el ícono de traducción
+languageButton.addEventListener('click', () => {
+   currentLang = currentLang === 'es' ? 'en' : 'es'; // Alternar entre español e inglés
+   updateLanguage(currentLang); // Actualizar el idioma
+});
+
+// Inicializar con el idioma actual
+updateLanguage(currentLang);
+</script>
+
+<!-- Efecto interactivo -->
+<script>
+  const skills = document.querySelector('.skills');
+  let draggedItem = null;
+
+  skills.addEventListener('dragstart', e => {
+    if (e.target.tagName === 'SPAN') {
+      draggedItem = e.target;
+      e.dataTransfer.effectAllowed = 'move';
+    }
+  });
+
+  skills.addEventListener('dragover', e => {
+    e.preventDefault();
+    const target = e.target;
+    if (target.tagName === 'SPAN' && target !== draggedItem) {
+      const bounding = target.getBoundingClientRect();
+      const offset = bounding.y + bounding.height / 2;
+      if (e.clientY - offset > 0) {
+        target.after(draggedItem);
+      } else {
+        target.before(draggedItem);
+      }
+    }
+  });
+
+  skills.addEventListener('drop', e => {
+    e.preventDefault();
+    draggedItem = null;
+  });
+</script>
+
+
+
+</body>
+</html>
